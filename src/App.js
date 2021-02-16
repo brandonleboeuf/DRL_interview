@@ -1,10 +1,12 @@
-import './App.css'
 import { useEffect, useState } from 'react'
+import './App.css'
+
 const url = 'https://jsonplaceholder.typicode.com/users'
 
 const App = () => {
   const [data, setData] = useState([])
 
+  // The first time the app renders, it will fetch the data from the api
   useEffect(() => {
     async function getData() {
       const res = await fetch(url).then((result) => result.json())
@@ -13,17 +15,17 @@ const App = () => {
     getData()
   }, [])
 
+  // this adds the first names to a new array to be displayed at the bottom of the page
   const firstNames = []
-
   for (let name of data) {
     firstNames.push(name.name)
   }
 
   let connectedNames = firstNames.join(', ')
-  console.log(firstNames)
 
   return (
     <div className="App">
+      {/* only displays the names which do not start with 'M' or 'K' */}
       {data
         ?.filter((person) => person.name[0] !== 'M')
         .filter((person) => person.name[0] !== 'K')
@@ -36,6 +38,7 @@ const App = () => {
               <div className="phone">
                 <p>#</p>{' '}
                 <p className="center">
+                  {/* replaces all "(" or ")" with dashes  */}
                   {item.phone.replace(/[)]/g, '-').replace(/[(]/g, '-')}
                 </p>
                 <p> </p>
