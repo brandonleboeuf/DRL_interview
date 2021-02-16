@@ -4,7 +4,10 @@ Requirements:
 Time limit to complete: 30 minutes
 You can use any code editor and any Javascript framework or library, including plain vanilla Javascript, or Typescript. Please share your screen as you code.
 Description:
-Make an API request to get a list of users from https://jsonplaceholder.typicode.com/users (no authentication is required)
+
+1. Make an API request to get a list of users from https://jsonplaceholder.typicode.com/users (no authentication is required)
+2. Display the users in a table that looks like the screenshot below:
+   <img src="/public/example.png" width="100%" />
 
 Notes:
 -- The 1st column displays the name and email address of each user, the two fields are separated by “ | “.
