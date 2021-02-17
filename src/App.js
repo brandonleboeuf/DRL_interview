@@ -17,8 +17,10 @@ const App = () => {
 
   // this adds the first names to a new array to be displayed at the bottom of the page
   const firstNames = []
-  for (let name of data) {
-    firstNames.push(name.name)
+  for (let fullName of data) {
+    // breaks out only the first two parts of each name 
+    let firstTwo = fullName.name.split(' ')
+    firstNames.push(`${firstTwo[0]} ${firstTwo[1]}`)
   }
 
   let connectedNames = firstNames.join(', ')
